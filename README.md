@@ -10,7 +10,7 @@ mkdir ~/data/pgsql-test
 docker run --name pgsql-test -v ~/data/pgsql-test:/var/lib/postgresql/data -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=pw -e POSTGRES_DB=default -d postgres
 
 ### Step 3 - Run a pgsql client tools container
-docker run -it --rm --link pgsql-test:pgsql-test --name pg-tools postgres pgsql -h pgsql-cc -U admin -d default
+docker run -it --rm --link pgsql-test:pgsql-test --name pg-tools postgres psql -h pgsql-test -U admin -d default
      (enter password "pw", from step 2)
 
 ### Step 4 - Create a table "test" in database "default"
