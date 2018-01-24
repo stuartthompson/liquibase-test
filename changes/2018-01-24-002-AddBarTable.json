@@ -2,7 +2,7 @@
     "databaseChangeLog": [
         {
             "changeSet": {
-                "id": "1",
+                "id": "2",
                 "author": "stuartthompson",
                 "createTable": {
                     "tableName": "bar",
