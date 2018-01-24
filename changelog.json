@@ -1,0 +1,12 @@
+{
+    "databaseChangeLog": [
+      {
+        "include": [
+          {
+            "file": "changes/2018-01-24-001-AddFooTable.json",
+            "file": "changes/2018-01-24-002-AddBarTable.json"
+          }
+        ]
+      }
+    ]
+  }

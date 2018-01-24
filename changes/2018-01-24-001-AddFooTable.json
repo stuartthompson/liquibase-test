@@ -1,0 +1,26 @@
+{
+    "databaseChangeLog": [
+        {
+            "changeSet": {
+                "id": "1",
+                "author": "stuartthompson",
+                "createTable": {
+                    "tableName": "foo",
+                    "columns": [
+                        {
+                            "column": {
+                                "name": "fooId",
+                                "type": "int"
+                            }
+                        }
+                    ]
+                },
+                "rollback": {
+                    "dropTable": {
+                        "tableName": "foo"
+                    }
+                }
+            }
+        }
+    ]
+}
