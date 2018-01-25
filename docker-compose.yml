@@ -1,0 +1,11 @@
+version: '3.4'
+services:
+  liquibase:
+    image: "webdevops/liquibase:postgres"
+    volumes:
+      - .:/liquibase
+    environment:
+      - LIQUIBASE_CHANGELOG=${LIQUIBASE_CHANGELOG}
+      - LIQUIBASE_URL=jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      - LIQUIBASE_USERNAME=${POSTGRES_USER}
+      - LIQUIBASE_PASSWORD=${POSTGRES_PASSWORD}

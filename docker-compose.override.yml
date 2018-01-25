@@ -1,0 +1,28 @@
+version: '3.4'
+services:
+  db:
+    image: "postgres:${POSTGRES_VERSION}"
+    volumes:
+      - datadb:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - 5432:5432
+
+  psql:
+    image: "postgres:${POSTGRES_VERSION}"
+    links:
+      - db
+    environment:
+      - PGPASSWORD=${POSTGRES_PASSWORD}
+    command: psql -h db -U ${POSTGRES_USER} -d ${POSTGRES_DB}
+
+  liquibase:
+    links:
+      - db
+
+volumes:
+  datadb:
+    name: postgres-data
