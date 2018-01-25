@@ -21,7 +21,7 @@ to apply a changeset to a pgsql database.
 > docker-compose run psql  
 ```
 
-```sql
+```psql
 default=# \dt
 No relations found.
 
@@ -40,7 +40,7 @@ id
 ----
 (0 rows)
 
-\q
+default=# \q
 ```
 
 ### Step 3 - Run Liquibase container to preview the update sql
@@ -58,8 +58,8 @@ id
 > docker-compose run -rm psql
 ```
 
-```sql
-\dt
+```psql
+default=# \dt
 List of relations
 Schema |         Name          | Type  | Owner
 --------+-----------------------+-------+-------
@@ -70,12 +70,12 @@ public | foo                   | table | admin
 public | test                  | table | admin
 (5 rows)
 
-\q
+default=# \q
 ```
 
 ### Step 6 - Run Liquibase container to preview that a subsequent run does not attempt to create the tables again
 ```bash
-docker-compose run liquibase updateSQL
+> docker-compose run liquibase updateSQL
 ```
 
     (the update sql should indicate that no changes are required)
