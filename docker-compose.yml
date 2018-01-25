@@ -1,4 +1,4 @@
-version: '3'
+version: '3.4'
 services:
   db:
     image: "postgres:${POSTGRES_VERSION}"
@@ -24,8 +24,8 @@ services:
     volumes:
       - .:/liquibase
     environment:
-      - LIQUIBASE_CHANGELOG=changelog.json
-      - LIQUIBASE_URL=${LIQUIBASE_URL}
+      - LIQUIBASE_CHANGELOG=${LIQUIBASE_CHANGELOG}
+      - LIQUIBASE_URL=jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
       - LIQUIBASE_USERNAME=${POSTGRES_USER}
       - LIQUIBASE_PASSWORD=${POSTGRES_PASSWORD}
     links:
@@ -33,4 +33,4 @@ services:
 
 volumes:
   datadb:
-    driver: local
+    name: postgres-data

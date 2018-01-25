@@ -6,7 +6,7 @@ to apply a changeset to a pgsql database.
 
 ## Pre-requisites
 * Docker Engine 1.13.0+
-* Docker Compose 1.10.0+
+* Docker Compose 1.17.0+
 
 ## Example
 ### Step 1 - Start the pgsql in a detached container
@@ -18,7 +18,7 @@ to apply a changeset to a pgsql database.
 ### Step 2 - Run pgsql client to create a new table in the database
 
 ```bash
-> docker-compose run psql  
+> docker-compose run --rm psql  
 ```
 
 ```psql
@@ -45,12 +45,12 @@ default=# \q
 
 ### Step 3 - Run Liquibase container to preview the update sql
 ```bash
-> docker-compose run -rm liquibase updateSQL
+> docker-compose run --rm liquibase updateSQL
 ```
 
 ### Step 4 - Run Liquibase container to execute the update
 ```bash
-> docker-compose run -rm liquibase update
+> docker-compose run --rm liquibase update
 ```
 
 ### Step 5 - Run pgsql client to validate the update occurred
