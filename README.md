@@ -5,8 +5,8 @@ use this project to demonstrate how Liquibase can be run within a Docker contain
 to apply a changeset to a pgsql database.
 
 ## Pre-requisites
-* Docker Engine #.#+
-* Docker Compose #.#+
+* Docker Engine 1.13.0+
+* Docker Compose 1.10.0+
 
 ## Example
 ### Step 1 - Start the pgsql in a detached container
