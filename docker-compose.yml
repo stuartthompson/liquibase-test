@@ -24,6 +24,7 @@ services:
     volumes:
       - .:/liquibase
     environment:
+      - LIQUIBASE_CHANGELOG=changelog.json
       - LIQUIBASE_URL=${LIQUIBASE_URL}
       - LIQUIBASE_USERNAME=${POSTGRES_USER}
       - LIQUIBASE_PASSWORD=${POSTGRES_PASSWORD}
