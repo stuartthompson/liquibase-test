@@ -12,7 +12,7 @@ to apply a changeset to a pgsql database.
 ### Step 1 - Start the pgsql in a detached container
 
 ```bash
-docker-compose up -d db
+> docker-compose up -d db
 ```
 
 ### Step 2 - Run pgsql client to create a new table in the database
@@ -24,8 +24,10 @@ docker-compose up -d db
 ```sql
 default=# \dt
 No relations found.
+
 default=# create table test (id int);
 CREATE TABLE
+
 default=# \dt
 List of relations
 Schema | Name | Type  | Owner
@@ -48,12 +50,12 @@ id
 
 ### Step 4 - Run Liquibase container to execute the update
 ```bash
-docker-compose run -rm liquibase update
+> docker-compose run -rm liquibase update
 ```
 
 ### Step 5 - Run pgsql client to validate the update occurred
 ```bash
-docker-compose run -rm psql
+> docker-compose run -rm psql
 ```
 
 ```sql
