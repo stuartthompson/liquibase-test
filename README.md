@@ -78,4 +78,4 @@ default=# \q
 > docker-compose run liquibase updateSQL
 ```
 
-    (the update sql should indicate that no changes are required)
+(the update sql should indicate that no changes are required)
