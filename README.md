@@ -55,7 +55,7 @@ default=# \q
 
 ### Step 5 - Run pgsql client to validate the update occurred
 ```bash
-> docker-compose run -rm psql
+> docker-compose run --rm psql
 ```
 
 ```psql
@@ -75,7 +75,7 @@ default=# \q
 
 ### Step 6 - Run Liquibase container to preview that a subsequent run does not attempt to create the tables again
 ```bash
-> docker-compose run liquibase updateSQL
+> docker-compose run --rm liquibase updateSQL
 ```
 
 (the update sql should indicate that no changes are required)
