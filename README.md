@@ -79,3 +79,8 @@ default=# \q
 ```
 
 (the update sql should indicate that no changes are required)
+
+### Step 7 - Cleanup the pgsql container and related volumes
+```bash
+> docker-compose down --volumes
+```
